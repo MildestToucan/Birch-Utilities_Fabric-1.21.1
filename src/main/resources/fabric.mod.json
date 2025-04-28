@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "birch_util",
+	"version": "${version}",
+	"name": "Birch Utilities",
+	"description": "Birch Utilities aims to encourage birch usage by giving it practical usages. This is done because it is often rejected as a building material.",
+	"authors": [
+		"MildToucan"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/birch_util/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.mildtoucan.birch_util.BirchUtilities"
+		],
+		"fabric-datagen": [
+			"net.mildtoucan.birch_util.BirchUtilitiesDataGenerator"
+		],
+		"client": [
+			"net.mildtoucan.birch_util.BirchUtilitiesClient"
+		]
+	},
+	"mixins": [
+		"birch_util.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
