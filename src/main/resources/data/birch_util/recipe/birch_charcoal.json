@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "ingredient": {
+    "tag": "minecraft:birch_logs"
+  },
+  "result": {
+    "id": "birch_util:birch_charcoal"
+  }
+}

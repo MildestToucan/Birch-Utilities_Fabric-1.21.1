@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "ingredient": {
+    "tag": "minecraft:dark_oak_logs",
+    "tag": "minecraft:oak_logs",
+    "tag": "minecraft:acacia_logs",
+    "tag": "minecraft:jungle_logs",
+    "tag": "minecraft:spruce_logs",
+    "tag": "minecraft:mangrove_logs",
+    "tag": "minecraft:cherry_logs"
+  },
+  "result": {
+    "id": "minecraft:charcoal"
+  }
+}
