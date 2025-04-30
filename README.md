@@ -8,10 +8,10 @@ Whilst I do hope that people will enjoy it once I actually get it in a working s
 If you feel like helping with this project or suggesting any ways to improve Birch as a decoration block or give it utilities, feel free to contact me about it or open an issue.
 
 
-# Current features:
+## Current features:
 -Birch Charcoal, a form of charcoal that burns 1.5x more items compared to regular coal/charcoal
 
 
-# Current plans/TODO List:
+## Current plans/TODO List:
 
 -Buff to birch wood as a fuel source
