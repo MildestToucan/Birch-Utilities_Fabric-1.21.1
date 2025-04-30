@@ -21,7 +21,9 @@ public class BirchUtilities implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
 			content.add(ModItems.BIRCH_CHARCOAL);
 		});
+		//^ Modifies vanilla item category to add birch charcoal to the ingredients category
 
-		FuelRegistry.INSTANCE.add(ModItems.BIRCH_CHARCOAL, 2400);
+
+		FuelRegistry.INSTANCE.add(ModItems.BIRCH_CHARCOAL, 2400); //2400 ticks of burn time, 12 standard items burnt
 	}
 }
