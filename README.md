@@ -2,17 +2,16 @@
 
 # Birch Utilities
 By MildToucan
-Currently unpublished
 
 This project is my *very first project* that I actually plan to publish and share. It will likely be very poor in features, prone to bugs, messily published and messily coded.
 Whilst I do hope that people will enjoy it once I actually get it in a working state, which it currently is not in, I don't expect much, this is mostly an experiment and a learning experience.
 If you feel like helping with this project or suggesting any ways to improve Birch as a decoration block or give it utilities, feel free to contact me about it or open an issue.
 
 
-# Current plans:
+# Current features:
+-Birch Charcoal, a form of charcoal that burns 1.5x more items compared to regular coal/charcoal
 
--Custom icon (done)
 
--Birch Charcoal, a form of charcoal buffed from regular charcoal with a distinct texture, with an integration into coal recipes (Coded in, texture missing)
+# Current plans/TODO List:
 
 -Buff to birch wood as a fuel source
