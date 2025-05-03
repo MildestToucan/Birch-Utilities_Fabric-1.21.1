@@ -11,15 +11,15 @@ This mod intends to repurpose Birch, as it is only used sparsely by most players
 
 ## Current features:
 
-Complete/Implemented:
+Complete/Implemented:  
 -Birch Charcoal, a form of charcoal that burns 1.5x more items compared to regular coal/charcoal
 
-WIP:
+WIP:  
 -Birch Reinforced Shears, shears with a birch-reinforced frame, giving extra durability (2.5x more durability)  
 Currently, not all Shears features are implemented (surprisingly difficult to make custom shears, somehow.)
 
 ## Current plans/TODO List:
--Texture for Birch Reinforced Shears, finish coding Birch Reinforced Shears
+-Texture for Birch Reinforced Shears, finish coding Birch Reinforced Shears  
 -Improved texture for Birch Charcoal
 
 
