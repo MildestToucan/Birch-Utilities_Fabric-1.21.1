@@ -35,6 +35,6 @@ Additionally to the permissions of the license:
 ## Credits
 [KaupenJoe](https://www.youtube.com/@ModdingByKaupenjoe): Making a great free resource to get started with Java and mod development
 
-[Apis035](https://modrinth.com/user/Apis035): Creating the [VanillaShears mod](https://modrinth.com/mod/vanillashears), which this mod's Birch Shears implementation is based upon
+[Apis035](https://modrinth.com/user/Apis035): Creating the [VanillaShears mod](https://modrinth.com/mod/vanillashears), which this mod's Birch Shears implementation is partially based upon
 
 The various ModLoader API teams hard at work on making mods possible at all and as feasible as possible.
