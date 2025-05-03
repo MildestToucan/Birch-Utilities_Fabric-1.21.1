@@ -24,9 +24,11 @@ Currently, not all Shears features are implemented (surprisingly difficult to ma
 
 
 ## Permissions
--You may fork and create ports and modified versions of this mod, just make sure to credit the original mod.  
--You may use this mod in any modpack you see fit, so long as proper attribution is made.  
--You may use this mod in any video or content creation, so long as you give credit.
+This mod is as of the 3rd of May 2025 under the MIT license.  
+Additionally to the permissions of the license:  
+-You may make forks, and use my code in your own creations. Please however provide a notice and credit.  
+-You may make videos, content, etc., please provide a notice and credit.  
+-You may use this in modpacks, please provide credit and a notice.
 
 
 
