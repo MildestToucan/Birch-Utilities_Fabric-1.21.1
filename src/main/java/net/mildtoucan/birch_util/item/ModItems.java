@@ -2,6 +2,7 @@ package net.mildtoucan.birch_util.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.mildtoucan.birch_util.BirchUtilities;
+import net.mildtoucan.birch_util.item.custom.BirchShearsItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
@@ -13,6 +14,10 @@ public class ModItems {
 
 
 
+
+
+    //Birch tools
+    public static final Item BIRCH_SHEARS = registerItem("birch_shears", new BirchShearsItem(new Item.Settings()));
 
 
     //Custom fuel source

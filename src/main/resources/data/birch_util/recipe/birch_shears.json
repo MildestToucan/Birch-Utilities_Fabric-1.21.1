@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "minecraft:shears"
+    },
+    "B": {
+      "tag": "minecraft:birch_logs"
+    }
+  },
+  "pattern": [
+    "BBB",
+    " S ",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "birch_util:birch_shears"
+  }
+}
