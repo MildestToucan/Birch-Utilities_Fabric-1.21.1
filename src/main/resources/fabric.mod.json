@@ -11,7 +11,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/MildestToucan/Birch-Utilities_Fabric-1.21.1"
 	},
-	"license": "EPL-2.0",
+	"license": "MIT",
 	"icon": "assets/birch_util/birch_util_icon.png",
 	"environment": "*",
 	"entrypoints": {
