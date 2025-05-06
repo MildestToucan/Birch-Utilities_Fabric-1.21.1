@@ -1,20 +1,29 @@
 package net.mildtoucan.birch_util.item.custom;
 
-import net.minecraft.block.BlockState;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.BoggedEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ShearsItem;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+
+import java.util.Map;
 
 import static net.minecraft.entity.LivingEntity.getSlotForHand;
 
@@ -25,6 +34,14 @@ public class BirchShearsItem extends ShearsItem {
         super(settings.maxDamage(595) //About 2.5x more durability than regular shears.
                 .component(DataComponentTypes.TOOL, ShearsItem.createToolComponent()));
     }
+
+
+    //This is using the same system as the chisel tool in KaupenJoe's 1.21 Fabric Tutorial.
+    //Very unoptimized for a single block, will need to refine this into a better solution later.
+    public static final Map<Block, Block> PUMPKIN_SHEAR_MAP =
+            Map.of(
+                    Blocks.PUMPKIN, Blocks.CARVED_PUMPKIN
+            );
 
     @Override //This Override essentially is for shearing entities.
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
@@ -56,13 +73,38 @@ public class BirchShearsItem extends ShearsItem {
             }
         }
 
-        return ActionResult.PASS;
-    }
+        if(entity instanceof BoggedEntity boggedEntity) {
+            if(boggedEntity.isShearable()) {
+                boggedEntity.sheared(SoundCategory.PLAYERS);
+                boggedEntity.emitGameEvent(GameEvent.SHEAR, user);
+                stack.damage(1, user, getSlotForHand(hand));
+            }
+        }
 
+        return ActionResult.PASS;
+    }// tyyyyyyyyyyyyy Message courtesy of my cat Hety
 
     @Override
-    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        World world = context.getWorld();
+        Block clickedBlock = world.getBlockState(context.getBlockPos()).getBlock();
+        //Those two lines grab info on the world to determine the block being clicked on
+        if(!world.isClient()) {
+            if(PUMPKIN_SHEAR_MAP.containsKey(clickedBlock)) {
+                world.setBlockState(context.getBlockPos(), PUMPKIN_SHEAR_MAP.get(clickedBlock).getDefaultState());
 
-        return super.postMine(stack, world, state, pos, miner);
+                context.getStack().damage(1, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()),
+                        item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+
+                world.playSound(null, context.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS);
+                return ActionResult.SUCCESS;
+            } else if(clickedBlock.equals(Blocks.BEEHIVE) || clickedBlock.equals(Blocks.BEE_NEST)) {
+
+            }
+        }
+
+
+
+        return ActionResult.PASS;
     }
 }
