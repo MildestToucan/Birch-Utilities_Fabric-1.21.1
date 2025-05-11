@@ -1,18 +1,12 @@
 package net.mildtoucan.birch_util.item.custom;
 
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CarvedPumpkinBlock;
-import net.minecraft.block.PumpkinBlock;
+import net.minecraft.block.*;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.BoggedEntity;
-import net.minecraft.entity.passive.MooshroomEntity;
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.entity.passive.SnowGolemEntity;
+import net.minecraft.entity.Shearable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -31,7 +25,7 @@ import net.minecraft.world.event.GameEvent;
 
 import static net.minecraft.entity.LivingEntity.getSlotForHand;
 
-//Taking example on the VanillaShears Mod by Apis035, adapting to current Java/MC versions
+//Taking mild inspiration from the VanillaShears Mod by Apis035, made their entity checking code much better though.
 
 public class BirchShearsItem extends ShearsItem {
     public BirchShearsItem(Settings settings) {
@@ -39,44 +33,19 @@ public class BirchShearsItem extends ShearsItem {
                 .component(DataComponentTypes.TOOL, ShearsItem.createToolComponent()));
     }
 
-    @Override //This Override essentially is for shearing entities.
+    @Override
+    //Opted for this rather than checking every entity, a fourth of the size,
+    //it is now also compatible with any modded mobs that use the interface.
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if(entity.getWorld().isClient)
-            return ActionResult.PASS;
-
-
-        if(entity instanceof SheepEntity sheepEntity) {
-            if(sheepEntity.isShearable()) {
-                sheepEntity.sheared(SoundCategory.PLAYERS);
-                sheepEntity.emitGameEvent(GameEvent.SHEAR, user);
-                stack.damage(1, user, getSlotForHand(hand));
+        if(!entity.getWorld().isClient()) {
+            if(entity instanceof Shearable) {
+                if(((Shearable) entity).isShearable()) {
+                    ((Shearable) entity).sheared(SoundCategory.PLAYERS);
+                    entity.emitGameEvent(GameEvent.SHEAR, user);
+                    stack.damage(1, user, getSlotForHand(hand));
+                }
             }
         }
-
-        if(entity instanceof MooshroomEntity mooshroomEntity) {
-            if(mooshroomEntity.isShearable()) {
-                mooshroomEntity.sheared(SoundCategory.PLAYERS);
-                mooshroomEntity.emitGameEvent(GameEvent.SHEAR, user);
-                stack.damage(1, user, getSlotForHand(hand));
-            }
-        }
-
-        if(entity instanceof SnowGolemEntity snowGolemEntity) {
-            if(snowGolemEntity.isShearable()) {
-                snowGolemEntity.sheared(SoundCategory.PLAYERS);
-                snowGolemEntity.emitGameEvent(GameEvent.SHEAR, user);
-                stack.damage(1, user, getSlotForHand(hand));
-            }
-        }
-
-        if(entity instanceof BoggedEntity boggedEntity) {
-            if(boggedEntity.isShearable()) {
-                boggedEntity.sheared(SoundCategory.PLAYERS);
-                boggedEntity.emitGameEvent(GameEvent.SHEAR, user);
-                stack.damage(1, user, getSlotForHand(hand));
-            }
-        }
-
         return ActionResult.PASS;
     }// tyyyyyyyyyyyyy Message courtesy of my cat Hety
 
@@ -114,6 +83,8 @@ public class BirchShearsItem extends ShearsItem {
                         item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
 
                 world.emitGameEvent(player, GameEvent.SHEAR, pos);
+            } else if(clickedBlock instanceof BeehiveBlock) {
+
             }
         }
         return ActionResult.SUCCESS;
