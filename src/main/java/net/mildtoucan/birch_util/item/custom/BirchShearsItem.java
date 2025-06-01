@@ -34,8 +34,9 @@ public class BirchShearsItem extends ShearsItem {
     }
 
     @Override
-    //Opted for this rather than checking every entity, a fourth of the size,
-    //it is now also compatible with any modded mobs that use the interface.
+    //Should work for any entity with iShearable interface.
+    //This won't work for tamed wolves, due to wolves already having a right click interaction outside of shears,
+    //which will get prioritized over this. Need to use Mixins.
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if(!entity.getWorld().isClient()) {
             if(entity instanceof Shearable) {
