@@ -36,9 +36,7 @@ import static net.minecraft.state.property.Properties.HONEY_LEVEL;
 //Took mild inspiration from the VanillaShears Mod by Apis035, made their entity checking code much better though.
 
 
-/*TODO LIST:
-*-Implement wolf armor interaction
-*-Review and refine the currently implemented features*/
+
 
 public class BirchShearsItem extends ShearsItem {
     public BirchShearsItem(Settings settings) {
