@@ -11,18 +11,18 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Slice;
 
-@Debug(export = true) //Need to disable this from any actual release
+@Debug(export = false) //Need to disable this from any actual release
 @Mixin(WolfEntity.class)
 public abstract class WolfBirchShearsInteractMixin {
     @WrapOperation(method = "interactMob", //I do not understand this syntax but if it works, it works
-            slice = @Slice( //Targeted calls who are only used once within interactMob to be as precise as possible.
+            slice = @Slice(
                     from = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;copyWithCount(I)Lnet/minecraft/item/ItemStack;"),
                     to = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/WolfEntity;isInSittingPose()Z")
             ),
             at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z")
     )
     private boolean isItemBirchShears(ItemStack instance, Item item, Operation<Boolean> original) {
-        return !(original.call(instance, item) && instance.isOf(ModItems.BIRCH_SHEARS)); //No touchey, this works fine and Idk why.
+        return !(original.call(instance, item) && instance.isOf(ModItems.BIRCH_SHEARS));
     }
 
 }

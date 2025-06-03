@@ -24,10 +24,12 @@ public class BirchUtilities implements ModInitializer {
 
 
 
+
+
+		//Register modded items into vanilla item groups.
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
 			content.add(BIRCH_SHEARS);
 		});
-
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
 			content.add(ModItems.BIRCH_CHARCOAL);
 		});

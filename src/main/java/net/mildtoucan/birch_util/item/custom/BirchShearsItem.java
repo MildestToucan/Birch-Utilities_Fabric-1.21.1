@@ -63,14 +63,14 @@ public class BirchShearsItem extends ShearsItem {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
+        //Variables declared to replicate the onUseWithItem parameters of the blocks we're interacting with.
         World world = context.getWorld();
         Block clickedBlock = world.getBlockState(context.getBlockPos()).getBlock();
         BlockState blockState = world.getBlockState(context.getBlockPos());
         BlockPos pos = context.getBlockPos();
         PlayerEntity player = context.getPlayer();
 
-        //^^ Grabs info about the clicked block, creating it and the block into a variable we can use.
-        //This is done to replicate the onUseWithItem parameters of the blocks we're interacting with.
+
         if(!world.isClient()) {
             if(clickedBlock instanceof PumpkinBlock) {
                 Direction direction = context.getSide();
@@ -151,6 +151,5 @@ public class BirchShearsItem extends ShearsItem {
             }
         }
     }
-
 
 }

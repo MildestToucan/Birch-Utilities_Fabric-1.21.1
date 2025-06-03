@@ -11,12 +11,17 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    //Birch tools
+
     public static final Item BIRCH_SHEARS = registerItem("birch_shears", new BirchShearsItem(new Item.Settings()));
 
 
-    //Custom fuel source
+
     public static final Item BIRCH_CHARCOAL = registerItem("birch_charcoal", new Item(new Item.Settings()));
+
+
+
+
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BirchUtilities.MOD_ID, name), item);
