@@ -25,16 +25,14 @@ Currently, not all Shears features are implemented (surprisingly difficult to ma
 
 ## Permissions
 This mod is as of the 3rd of May 2025 under the MIT license.  
-Additionally to the permissions of the license:  
--You may make forks, and use my code in your own creations. Please however provide a notice and credit.  
--You may make videos, content, etc., please provide a notice and credit.  
--You may use this in modpacks, please provide credit and a notice.
+As per the license's permissions, as long as you provide a copyright notice in your own work, you may use my code as you need for your own projects.
 
 
 
 ## Credits
 [KaupenJoe](https://www.youtube.com/@ModdingByKaupenjoe): Making a great free resource to get started with Java and mod development
 
-[Apis035](https://modrinth.com/user/Apis035): Creating the [VanillaShears mod](https://modrinth.com/mod/vanillashears), which this mod's Birch Shears implementation is partially based upon
+[Apis035](https://modrinth.com/user/Apis035): Creating the [VanillaShears mod](https://modrinth.com/mod/vanillashears), which this mod's Birch Shears implementation is partially inspired by.  
+The various ModLoader API teams hard at work on making mods possible at all and as feasible as possible.  
 
-The various ModLoader API teams hard at work on making mods possible at all and as feasible as possible.
+[cech12](https://modrinth.com/user/cech12): Creating the [Wooden Shears Mod](https://modrinth.com/mod/wooden-shears), the code of which helped me understand shears code better.

@@ -11,11 +11,6 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-
-
-
-
-
     //Birch tools
     public static final Item BIRCH_SHEARS = registerItem("birch_shears", new BirchShearsItem(new Item.Settings()));
 
