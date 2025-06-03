@@ -27,12 +27,8 @@ public class BirchUtilities implements ModInitializer {
 
 
 		//Register modded items into vanilla item groups.
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
-			content.add(BIRCH_SHEARS);
-		});
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
-			content.add(ModItems.BIRCH_CHARCOAL);
-		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> content.add(BIRCH_SHEARS));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> content.add(ModItems.BIRCH_CHARCOAL));
 
 
 		FuelRegistry.INSTANCE.add(ModItems.BIRCH_CHARCOAL, 2400); //2400 ticks of burn time, 12 standard items burnt
